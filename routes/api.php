@@ -24,4 +24,7 @@ Route::get('test', function (){
     ]);
 });
 
+Route::get('inquiries', [\App\Http\Controllers\Api\FormController::class, 'index']);
 Route::post('inquiries', [\App\Http\Controllers\Api\FormController::class, 'store']);
+
+Route::resource('questions', \App\Http\Controllers\QuestionController::class);
