@@ -33,4 +33,5 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
     Route::resource('users', \App\Http\Controllers\UserController::class);
+    Route::resource('inquiries', \App\Http\Controllers\InquiryController::class);
 });
