@@ -12,7 +12,7 @@ class InquiryController
     {
         return Inertia::render('Inquiries/Index', [
             'filters' => Request::all('search', 'trashed'),
-            'inquiries' => Inquiry::orderBy('name')
+            'inquiries' => Inquiry::orderBy('created_at', 'desc')
 //                ->filter(Request::only('search', 'trashed'))
                 ->paginate()
                 ->withQueryString()
