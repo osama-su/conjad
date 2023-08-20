@@ -18,7 +18,7 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+        'canRegister' => false, //Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
@@ -32,6 +32,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::resource('form', \App\Http\Controllers\FormController::class);
+        Route::resource('questions', \App\Http\Controllers\QuestionController::class);
+        Route::resource('steps', \App\Http\Controllers\StepController::class);
+
     Route::resource('users', \App\Http\Controllers\UserController::class);
     Route::resource('inquiries', \App\Http\Controllers\InquiryController::class);
 });
