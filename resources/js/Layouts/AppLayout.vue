@@ -142,7 +142,9 @@
                   <span class="sr-only">Open user menu</span>
                   <img class="h-8 w-8 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
                   <span class="hidden lg:flex lg:items-center">
-                    <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">Tom Cook</span>
+                    <span class="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
+                        {{ $page.props.auth.user.name}}
+                    </span>
                     <ChevronDownIcon class="ml-2 h-5 w-5 text-gray-400" aria-hidden="true" />
                   </span>
                 </MenuButton>
@@ -211,17 +213,12 @@
 
   const navigation = [
     { name: 'Dashboard', href: route('dashboard'), icon: HomeIcon, current: true },
+    { name: 'Form', href: route('form.index'), icon: DocumentDuplicateIcon, current: false },
     { name: 'Users', href: route('users.index'), icon: UsersIcon, current: false },
-    { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-    { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-    { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
+    { name: 'Inquiries', href: route('inquiries.index'), icon: DocumentDuplicateIcon, current: false },
+
   ]
-  const teams = [
-    { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-    { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-    { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-  ]
+
   const userNavigation = [
     { name: 'Your profile', href: route('profile.show')},
   ]

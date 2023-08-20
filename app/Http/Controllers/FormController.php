@@ -15,4 +15,9 @@ class FormController extends Controller
             'steps' => Step::with('questions')->get(),
         ]);
     }
+
+    public function storeStep(Request $request)
+    {
+
+    }
 }
