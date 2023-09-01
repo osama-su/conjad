@@ -40,5 +40,5 @@ Route::middleware([
     Route::resource('users', \App\Http\Controllers\UserController::class);
     Route::resource('inquiries', InquiryController::class);
 //    Export to excel
-    Route::get('export', [InquiryController::class, 'export'])->name('inquiries.export');
+    Route::get('export', [InquiryController::class, 'export'])->name('export');
 });
