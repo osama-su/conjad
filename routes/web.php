@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InquiryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -37,5 +38,7 @@ Route::middleware([
         Route::resource('steps', \App\Http\Controllers\StepController::class);
 
     Route::resource('users', \App\Http\Controllers\UserController::class);
-    Route::resource('inquiries', \App\Http\Controllers\InquiryController::class);
+    Route::resource('inquiries', InquiryController::class);
+//    Export to excel
+    Route::get('export', [InquiryController::class, 'export'])->name('inquiries.export');
 });

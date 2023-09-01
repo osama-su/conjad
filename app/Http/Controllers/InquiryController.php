@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InquiriesExport;
 use App\Models\Inquiry;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
-
+use Maatwebsite\Excel\Facades\Excel;
 class InquiryController
 {
     public function index()
@@ -30,5 +31,10 @@ class InquiryController
                     ];
                 }),
         ]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new InquiriesExport, 'inquiries.xlsx');
     }
 }
