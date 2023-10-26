@@ -26,5 +26,7 @@ Route::get('test', function (){
 
 Route::get('inquiries', [\App\Http\Controllers\Api\FormController::class, 'index']);
 Route::post('inquiries', [\App\Http\Controllers\Api\FormController::class, 'store']);
+Route::get('cities', [\App\Http\Controllers\Api\CityController::class, 'index']);
+Route::get('cities/{city}', [\App\Http\Controllers\Api\CityController::class, 'show']);
 
 Route::resource('questions', \App\Http\Controllers\QuestionController::class);
