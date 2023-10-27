@@ -15,7 +15,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = City::paginate(10);
+        $cities = City::all();
 
         return response()->json($cities);
     }
@@ -43,8 +43,7 @@ class CityController extends Controller
     {
         $areas = $city->areas()
             ->orderBy('name_en')
-            ->paginate()
-            ->withQueryString();
+            ->get();
         return response()->json($areas);
     }
 
