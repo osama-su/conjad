@@ -42,6 +42,7 @@ class CityController extends Controller
     public function show(City $city)
     {
         $areas = $city->areas()
+            ->whereNotNull('src')
             ->orderBy('name_en')
             ->get();
         return response()->json($areas);
