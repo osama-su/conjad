@@ -33,6 +33,9 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 
+    Route::resource('cities', \App\Http\Controllers\CityController::class);
+    Route::resource('{city}/areas', \App\Http\Controllers\AreaController::class);
+
     Route::resource('form', \App\Http\Controllers\FormController::class);
         Route::resource('questions', \App\Http\Controllers\QuestionController::class);
         Route::resource('steps', \App\Http\Controllers\StepController::class);
