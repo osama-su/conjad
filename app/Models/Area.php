@@ -14,6 +14,7 @@ class Area extends Model
         'name_ar',
         'name_en',
         'city_id',
+        'src',
     ];
 
     public function city(): BelongsTo
